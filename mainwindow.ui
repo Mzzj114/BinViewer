@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>521</width>
+    <height>553</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>BinViewer</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* MainWindow 样式 */  
+QMainWindow {  
+    background-color: #f0f0f0; /* 背景色 */  
+    border: none;  
+}  
+  
+/* TextEdit 样式 */  
+QTextEdit {  
+    background-color: white; /* 背景色 */  
+    border: 1px solid #ccc; /* 边框 */  
+    padding: 5px; /* 内边距 */  
+    font-family: &quot;Consolas&quot;, &quot;Courier New&quot;, monospace; /* 字体 */  
+    font-size: 10pt; /* 字体大小 */  
+    color: #000; /* 文本颜色 */  
+}  
+  
+/* StatusBar 样式 */  
+QStatusBar {  
+    background-color: #e0e0e0; /* 背景色 */  
+    border-top: 1px solid #ccc; /* 上边框 */  
+}  
+  
+/* MenuBar 样式 */  
+QMenuBar {  
+    background-color: #f0f0f0; /* 背景色 */  
+    border-bottom: 1px solid #ccc; /* 下边框 */  
+}  
+  
+QMenuBar::item {  
+    background-color: transparent; /* 菜单项背景色 */  
+    padding: 5px 10px; /* 内边距 */  
+    spacing: 3px; /* 菜单项间距 */  
+}  
+  
+QMenuBar::item:selected { /* 选中菜单项 */  
+    background-color: #ddd;  
+}  
+  
+QMenuBar::item:pressed { /* 按压菜单项 */  
+    background-color: #ccc;  
+}  
+  
+/* 菜单项的文本 */  
+QMenuBar QToolButton {  
+    color: #000; /* 文本颜色 */  
+    text-align: left; /* 文本对齐方式 */  
+}  
+  
+/* 菜单弹出时的样式 */  
+QMenu {  
+    background-color: #f0f0f0; /* 背景色 */  
+    border: 1px solid #ccc; /* 边框 */  
+}  
+  
+QMenu::item {  
+    background-color: transparent; /* 菜单项背景色 */  
+    padding: 5px 20px 5px 10px; /* 内边距 */  
+}  
+  
+QMenu::item:selected { /* 选中菜单项 */  
+    background-color: #ddd;  
+}  
+  
+QMenu::separator { /* 分隔符 */  
+    height: 1px;  
+    background: #ccc;  
+    margin-left: 10px;  
+    margin-right: 10px;  
+}  
+  
+/* 其他可能的样式（可选） */  
+QTextEdit::placeholder-text {  
+    color: #999; /* 占位符文本颜色 */  
+}  
+  
+/* 滚动条样式（可选） */  
+QTextEdit QScrollBar:vertical {  
+    width: 15px;  
+    background: #f0f0f0;  
+    border: 1px solid #ccc;  
+    margin: 20px 0 20px 0;  
+}  
+  
+QTextEdit QScrollBar::handle:vertical {  
+    background: #ddd;  
+    min-height: 20px;  
+}  
+  
+QTextEdit QScrollBar::add-line:vertical {  
+    border: 1px solid #ccc;  
+    background: #f0f0f0;  
+    height: 15px;  
+    subcontrol-position: bottom;  
+    subcontrol-origin: margin;  
+}  
+  
+/* ... 以及其他滚动条相关的样式 ... */</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QTextEdit" name="textEdit">
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>521</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen_file"/>
+    <addaction name="separator"/>
+    <addaction name="actionRename"/>
+    <addaction name="actionDelete"/>
+    <addaction name="actionSave_as"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionZoom_in"/>
+    <addaction name="actionZoom_out"/>
+   </widget>
+   <widget class="QMenu" name="menuTool">
+    <property name="title">
+     <string>Tool</string>
+    </property>
+    <addaction name="actionOption"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+   <addaction name="menuTool"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpen_file">
+   <property name="text">
+    <string>Open file</string>
+   </property>
+  </action>
+  <action name="actionRename">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Rename</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Delete</string>
+   </property>
+  </action>
+  <action name="actionFind">
+   <property name="text">
+    <string>Find</string>
+   </property>
+  </action>
+  <action name="actionOptions">
+   <property name="text">
+    <string>Options</string>
+   </property>
+  </action>
+  <action name="actionZoom_in">
+   <property name="text">
+    <string>Zoom in</string>
+   </property>
+  </action>
+  <action name="actionZoom_out">
+   <property name="text">
+    <string>Zoom out</string>
+   </property>
+  </action>
+  <action name="actionSave_as">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save as</string>
+   </property>
+  </action>
+  <action name="actionOption">
+   <property name="text">
+    <string>Options</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionZoom_in</sender>
+   <signal>triggered()</signal>
+   <receiver>textEdit</receiver>
+   <slot>zoomIn()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>260</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionZoom_out</sender>
+   <signal>triggered()</signal>
+   <receiver>textEdit</receiver>
+   <slot>zoomOut()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>260</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
